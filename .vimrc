@@ -79,7 +79,7 @@ Plug 'tpope/vim-commentary'
 Plug 'mattn/emmet-vim'
 
 " Intellisense engine, install one by :coc-install hey
-Plug 'neoclide/coc.nvim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " File search
 Plug 'junegunn/fzf'
@@ -95,9 +95,7 @@ nmap <buffer> <leader>gd <Plug>(coc-definition)
 nmap <buffer> <leader>gr <Plug>(coc-references)
 
 " fzf
-nnoremap <C-T> :Files<cr>
-nnoremap <Leader>b :Buffers<cr>
-nnoremap <Leader>s :BLines<cr>
+nnoremap <C-T> :FZF<cr>
 
 " Colorscheme
 set background=dark
