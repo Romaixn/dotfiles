@@ -1,3 +1,7 @@
+"
+" A (not so) minimal vimrc.
+"
+
 let mapleader = ","
 set nocompatible
 
@@ -58,6 +62,9 @@ set undofile
 set undodir     =$HOME/.vim/files/undo/
 set viminfo     ='100,n$HOME/.vim/files/info/viminfo
 
+" Shortcuts
+nnoremap <C-p> :bp<CR>
+nnoremap <C-n> :bn<CR>
 
 " Plugins
 " Download Plug
@@ -75,7 +82,7 @@ Plug 'tpope/vim-surround'
 " gc5j to commment 5 lines below
 Plug 'tpope/vim-commentary'
 
-" Emmet shortcut
+" Emmet shortcut (<c-y>,)
 Plug 'mattn/emmet-vim'
 
 " Intellisense engine, install one by :coc-install hey
@@ -83,6 +90,12 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " File search
 Plug 'junegunn/fzf'
+
+" Nerdtree
+Plug 'preservim/nerdtree'
+
+" Vim Airline (for tabs)
+Plug 'vim-airline/vim-airline'
 
 " Palenight
 Plug 'drewtempelmeyer/palenight.vim'
@@ -96,6 +109,22 @@ nmap <buffer> <leader>gr <Plug>(coc-references)
 
 " fzf
 nnoremap <C-T> :FZF<cr>
+nnoremap <Leader>b :Buffers<cr>
+nnoremap <Leader>s :BLines<cr>
+
+" Auto start nerdtree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" Nerdtree
+map <C-b> :NERDTreeToggle<CR>
+
+" Airline
+" Activate tabline at top
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 " Colorscheme
 set background=dark
